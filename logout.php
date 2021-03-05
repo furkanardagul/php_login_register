@@ -3,7 +3,7 @@ ob_start();
 session_start();
 
 session_destroy();
-header('location: index.php?text=Exited successfully.');
+header('location: index.php?text=Logged out successfully.');
 exit;
 
 ?>
