@@ -12,7 +12,7 @@ if(isset($_POST['btn_register'])){
     $selectTbl->execute($username);
     $select = $selectTbl->fetch(PDO::FETCH_ASSOC);
     if($select){
-        header('Location: index.php?text=There is such a user.');
+        header('Location: index.php?text=User exists.');
         exit;
     }else{
         $insertTbl = $db->prepare('INSERT INTO tbl_auth SET 
@@ -21,7 +21,7 @@ if(isset($_POST['btn_register'])){
         $insert = $insertTbl->execute(array($username, $password));
         if( $insert ){
             $_SESSION['login'] = 'true';
-            header('Location: index.php?text=You have successfully registered!');
+            header('Location: index.php?text=You have registered succesfully!');
             exit;
         }else{
             header('Location: index.php?text=Err!');
@@ -41,7 +41,7 @@ if(isset($_POST['btn_login'])){
 
     if($select == 1){
         $_SESSION['login'] = 'true';
-        header('Location: index.php?text=Login has been made.');
+        header('Location: index.php?text=Logged in.');
         exit;
     }else{
         header('Location: index.php?text=Err!');
